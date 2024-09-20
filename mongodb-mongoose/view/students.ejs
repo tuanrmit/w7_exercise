@@ -1,0 +1,28 @@
+<%- include('./partials/header.ejs', {title: 'Student list'}) %>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>GPA</th>
+            <th>Date of birth</th>
+            <th>Interests</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% students.forEach(function(student) { %>
+        <tr>
+            <td><%= student.name %></td>
+            <td><%= student.gpa %></td>
+            <td>
+                <%= student.birthDate.getMonth()%>/<%= student.birthDate.getFullYear() %>
+            </td>
+            <td><%= student.interests.toString() %></td>
+            <td><a href="student/<%= student.id %>/update">Click to update</a></td>
+            <td><a href="student/<%= student.id %>/delete">Click to delete</a></td>
+        </tr>    
+    <%})%>
+    </tbody>
+</table>
+<%- include('./partials/footer.ejs') %>

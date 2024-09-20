@@ -1,0 +1,19 @@
+<%- include('./partials/header.ejs', {title: 'Update students'}) %>
+<h1>Update student' information</h1>
+<form method="post" action="/student/<%=student._id%>/update">
+    <h2>New student</h2>
+    <p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="<%=student.name%>">
+    </p>
+    <p>
+        <label for="gpa">GPA</label>
+        <input type="text" id="gpa" name="gpa" value="<%=student.gpa%>">
+    </p>
+    <p>
+        <label for="dob">Date of birth</label>
+        <input type="date" id="dob" name="birthDate" value="<%= student.birthDate.getFullYear() %>-<%= student.birthDate.getMonth() < 10 ? '0' + student.birthDate.getMonth():student.birthDate.getMonth()%>-<%= student.birthDate.getDate() < 10 ? '0' + student.birthDate.getDate() : student.birthDate.getDate() %>">
+    </p>
+    <input type="submit" value="Update">
+</form>
+<%- include('./partials/footer.ejs') %>
